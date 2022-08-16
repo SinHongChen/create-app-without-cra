@@ -12,7 +12,7 @@ module.exports={
     /** "entry"
      * the entry point 
      */
-    entry: "./index.js", 
+    entry: "./index.tsx", 
     output: {
         /** "path"
          * the folder path of the output file 
@@ -58,7 +58,7 @@ module.exports={
          * resolve the one with the extension listed first in the array and skip the rest. 
          * This is what enables users to leave off the extension when importing
          */
-        extensions: ['.js','.jsx','.json'] 
+        extensions: ['ts','.tsx','.js','.jsx','.json'] 
     },
     module:{
         /** "rules"
@@ -87,6 +87,11 @@ module.exports={
                         }
                     }
                 ] //loader which we are going to use
+            },
+            {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
             }
         ]
     }
