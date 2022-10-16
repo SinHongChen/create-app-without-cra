@@ -1,7 +1,5 @@
 FROM node:16.13.2
+WORKDIR /usr/src/app
 
-WORKDIR '/app'
-ADD . /app
-RUN npm install -g yarn
-RUN yarn install
-RUN yarn run start
+COPY ./package* ./
+RUN npm install

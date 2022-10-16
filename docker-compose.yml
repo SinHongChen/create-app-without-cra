@@ -3,12 +3,12 @@ version: "3.8"
 services:
   web:
     container_name: web
-    build: ./
+    build: .
     restart: always
     tty: true
     ports:
       - 3000:3000
-    command: >
-      bash -c "
-        npm run docker
-      "
+    volumes:
+      - "./:/usr/src/app"
+      - "/usr/src/app/node_modules"
+    entrypoint: ["npm", "run", "start"]
