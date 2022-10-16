@@ -46,7 +46,12 @@ module.exports={
          * "only" is used if enable Hot Module Replacement without page 
          * refresh as a fallback in case of build failures
          */
-        hot: true ,
+        hot: true,
+        /** 
+         * if run server in docker,please change host to 0.0.0.0
+         * compress: false,
+         * host: "0.0.0.0"
+         * /
         /** "liveReload"
          * disable live reload on the browser. "hot" must be set to false for this to work
         */
@@ -94,5 +99,10 @@ module.exports={
                 exclude: /node_modules/,
             }
         ]
-    }
+    },
+
+    // if run server in docker , need set this option
+    // watchOptions: {
+    //     poll: 1000,
+    // }
 }
